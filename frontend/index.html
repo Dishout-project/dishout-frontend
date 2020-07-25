@@ -1,0 +1,56 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dishout</title>
+</head>
+
+<body>
+
+    <table id="myTable" style="width:100%">
+        <tr>
+            <th>Dish Name</th>
+        </tr>
+        <tr>
+            <td>Burger</td>
+        </tr>
+        <tr>
+            <td>Carbonora</td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    <p>Dish name:</p>
+    <input type="text" id="dish-name" name="dish-name">
+    <button onclick="addDish()">Add</button>
+    <br>
+
+    <br>
+    <button id="random" onclick="getRandomDish()">What Am I Eating?</button>
+    <p id="result"></p>
+
+    <script>
+
+        function getRandomDish() {
+            var p = document.getElementById('result')
+            var rows = document.getElementById("myTable").rows;
+            var rand = Math.floor(Math.random() * (rows.length - 1)) + 1
+            p.innerHTML = rows[rand].innerText
+
+            console.log(rand)
+        }
+
+        function addDish() {
+            var val = document.getElementById('dish-name').value
+            console.log(val)
+
+            var table = document.getElementById("myTable");
+            var row = table.insertRow(-1);
+            var cell = row.insertCell(0);
+            cell.innerHTML = val
+        }
+    </script>
+</body>
+
+</html>
