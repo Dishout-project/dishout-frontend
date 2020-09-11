@@ -1,11 +1,37 @@
 import React, { Component } from 'react';
+import Client from '../client/backendClient';
 
 class Home extends Component {
 
+    client = new Client();
     state = {
-        dishes: ['Burger', 'Carbonora', 'pizza'],
+        dishes: [],
         input: '',
-        randomDish: ''
+        randomDish: '',
+        empty: ""
+    }
+
+    componentDidMount() {
+        console.log('initialising');
+        this.client.getAllDishes().then(
+            (data) => {
+                this.setState({dishes: data});
+            }
+        )
+    }
+
+    addDish = () => {
+        this.client.addDish(this.state.input).then(
+            (res) => {
+                console.log(res)
+                this.client.getAllDishes().then(
+                    (data) => {
+                        this.setState({dishes: data});
+                    }
+                );
+            }
+        );
+        console.log(document.getElementById('dish-name').value);
     }
 
     getRandomDish() {
@@ -14,18 +40,11 @@ class Home extends Component {
         this.setState({ randomDish: rows[rand] })
     }
 
-    addDish = () => {
-        console.log(this.state.dishes)
-        this.setState({ dishes: this.state.dishes.concat(this.state.input) })
-    }
-
     handleInputChange = (e) => {
         this.setState({ input: e.target.value });
     }
 
-
     render() {
-
         return (
             <div>
 
@@ -34,7 +53,8 @@ class Home extends Component {
                         <tr>
                             <th>Dish Name</th>
                         </tr>
-                        {this.state.dishes.map((value, index) => {
+                        {
+                        this.state.dishes.map((value, index) => {
                             return <tr key={index}>
                                 <td> {value}</td>
                             </tr>
