@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
-                sh 'docker build -t dishout-backend .' 
+                sh 'docker build -t dishout-frontend .' 
             }
         }
     }
