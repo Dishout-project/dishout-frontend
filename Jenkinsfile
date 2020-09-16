@@ -1,14 +1,9 @@
 pipeline {
     agent any
     stages {
-        stage('Install') { 
-            steps {
-                sh 'npm install' 
-            }
-        }
         stage('Build') { 
             steps {
-                sh 'npm start' 
+                sh 'docker build -t dishout-backend .' 
             }
         }
     }
