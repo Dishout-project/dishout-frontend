@@ -15,7 +15,8 @@ class Home extends Component {
         console.log('initialising');
         this.client.getAllDishes().then(
             (data) => {
-                this.setState({dishes: data});
+                console.log(data)
+                this.setState({ dishes: data });
             }
         )
     }
@@ -26,7 +27,7 @@ class Home extends Component {
                 console.log(res)
                 this.client.getAllDishes().then(
                     (data) => {
-                        this.setState({dishes: data});
+                        this.setState({ dishes: data });
                     }
                 );
             }
@@ -36,7 +37,7 @@ class Home extends Component {
 
     getRandomDish() {
         var rows = this.state.dishes;
-        var rand = Math.floor(Math.random() * (rows.length - 1)) + 1
+        var rand = Math.floor(Math.random() * (rows.length))
         this.setState({ randomDish: rows[rand] })
     }
 
@@ -54,11 +55,11 @@ class Home extends Component {
                             <th>Dish Name</th>
                         </tr>
                         {
-                        this.state.dishes.map((value, index) => {
-                            return <tr key={index}>
-                                <td> {value}</td>
-                            </tr>
-                        })}
+                            this.state.dishes.map((value, index) => {
+                                return <tr key={index}>
+                                    <td> {value}</td>
+                                </tr>
+                            })}
                     </tbody>
                 </table>
 
