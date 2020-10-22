@@ -37,7 +37,7 @@ class Home extends Component {
 
     getRandomDish() {
         var rows = this.state.dishes;
-        var rand = Math.floor(Math.random() * (rows.length))
+        var rand = Math.floor(Math.random() * (rows.length))  
         this.setState({ randomDish: rows[rand] })
     }
 
