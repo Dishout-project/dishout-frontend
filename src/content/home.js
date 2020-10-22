@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Client from '../client/backendClient';
+import  * as environment from '../environments/environment';
 
 class Home extends Component {
 
@@ -12,10 +13,11 @@ class Home extends Component {
     }
 
     componentDidMount() {
+        console.log(`Production Environment: ${environment.production}`)
+
         console.log('initialising');
         this.client.getAllDishes().then(
             (data) => {
-                console.log(data)
                 this.setState({ dishes: data });
             }
         )

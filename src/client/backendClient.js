@@ -1,8 +1,11 @@
+import  * as environment from '../environments/environment';
+
 const axios = require('axios');
 
 export default class Client {
 
-    serverUrl = 'http://localhost:5000/'
+    // dishout-db.duckdns.org
+    serverUrl = environment.backendApi;
 
     // return promise function
     getAllDishes() {
@@ -10,7 +13,7 @@ export default class Client {
             .then(function (response) {
                 // handle success
                 var data = response.data.dishes;
-                console.log(data)
+                // console.log(data)
                 var dishes = data.map(obj => {
                     return obj.dish;
                 });
