@@ -22,6 +22,7 @@ export default class Client {
             .catch(function (error) {
                 // handle error
                 console.log(error);
+                return [];
             })
         return resp;
     }

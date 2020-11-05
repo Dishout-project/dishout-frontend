@@ -15,7 +15,6 @@ class Home extends Component {
     componentDidMount() {
         console.log(`Production Environment: ${environment.production}`)
 
-        console.log('initialising');
         this.client.getAllDishes().then(
             (data) => {
                 this.setState({ dishes: data });
@@ -34,7 +33,6 @@ class Home extends Component {
                 );
             }
         );
-        console.log(document.getElementById('dish-name').value);
     }
 
     getRandomDish() {
