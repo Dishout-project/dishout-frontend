@@ -9,6 +9,7 @@ import '../styles/styles.css'
 
 class LandingPage extends Component {
 
+    //Cc contains the Carousel component
     render() {
         return (
             <Card className="text-center">
