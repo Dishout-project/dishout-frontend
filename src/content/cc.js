@@ -11,7 +11,10 @@ function Cc() {
       <Carousel>
         <Carousel.Item interval={1000}>
           <img
-            className="d-block w-100"
+            width={700}
+            height={500}
+            className="m-3"
+            //className="d-block w-100"
             src={applepie}
             alt="First slide"
           />
@@ -22,7 +25,10 @@ function Cc() {
         </Carousel.Item>
         <Carousel.Item interval={500}>
           <img
-            className="d-block w-100"
+            width={700}
+            height={500}
+            className="m-3"
+            //className="d-block w-100"
             src={croissants}
             alt="second slide"
           />
@@ -33,7 +39,10 @@ function Cc() {
         </Carousel.Item>
         <Carousel.Item>
           <img
-            className="d-block w-100"
+            width={700}
+            height={500}
+            className="m-3"
+            //className="d-block w-100"
             src={lasagne}
             alt="Third slide"
           />
